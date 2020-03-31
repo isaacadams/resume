@@ -1,0 +1,56 @@
+@import './styles/common.less';
+@import './styles/overrides.less';
+
+.content {
+    width: 800px;
+}
+
+.resume {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.header {
+    .row {
+        justify-content: space-between;
+    }
+}
+
+.history {
+    ul {
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    li {
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+}
+
+.work-header {
+    .row {
+        justify-content: space-between;
+    }
+}
+
+.row {
+    display: flex;
+}
+
+.row-center {
+    display: flex;
+    justify-content: center;
+}
+
+.col {
+    flex: 1;
+}
+
+.history-header {
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}

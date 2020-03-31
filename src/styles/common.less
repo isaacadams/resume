@@ -1,0 +1,34 @@
+@import (reference) './functions.less';
+
+.looper (@i) when (@i > 0) {
+    .create-style-with-directions(m, margin, @i, px);
+    .create-style-with-directions(p, padding, @i, px);
+
+    .looper(@i - 1);
+}
+
+@iterations: 10;
+.looper (@iterations);
+
+.text {
+    &-uppercase {
+        text-transform: uppercase;
+    }
+
+    &-left {
+        text-align: left;
+    }
+
+    &-right {
+        text-align: right;
+    }
+}
+
+.create-columns (@i) when (@i > 0) {
+    .col-@{i} {
+        flex: @i;
+    }
+    .create-columns(@i - 1);
+}
+
+.create-columns(12);

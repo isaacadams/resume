@@ -1,0 +1,16 @@
+.create-style(@selector; @property; @value) {
+    .@{selector} {
+        @{property}: @value;
+    }
+}
+
+.create-style-with-directions(@selector; @property; @i; @units) {
+    @multipliedvalue: @i * 0.75;
+    @property-value: ~"@{multipliedvalue}@{units}";
+
+    .create-style(~"@{selector}-@{i}", @property, @property-value);
+    .create-style(~"@{selector}t-@{i}", ~"@{property}-top", @property-value);
+    .create-style(~"@{selector}b-@{i}", ~"@{property}-bottom", @property-value);
+    .create-style(~"@{selector}l-@{i}", ~"@{property}-left", @property-value);
+    .create-style(~"@{selector}r-@{i}", ~"@{property}-right", @property-value);
+}
