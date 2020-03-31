@@ -34,7 +34,7 @@ function Resume(props) {
                             <Skill category="Other" examples={["Git", "Visual Studio", "JSON", "XML", "Jira"]} />
                         </div>
                     </div>   
-                    <YSpacer />                 
+                    <YSpacer space="10px" />             
                 </ History>
                 <History title="Experience">                    
                     <div>
@@ -56,7 +56,7 @@ function Resume(props) {
                             "Built the data layer using a repostiory approach which inluded handling data in XML, JSON, and SQL",
                             "Halved number of files in a project by introducing a simpler repository approach in the new .NET Core app",
                         ]} />
-                        <YSpacer />
+                        <YSpacer space="8px" />
                     </div> 
                     <div>
                         <Header y={{
@@ -75,8 +75,8 @@ function Resume(props) {
                             "Wrote an API with ASP.Net Core and Entity Framework used to communicate between SQL and Angular",
                             "Played a key role in the design of the entire application from the database to the user interface",
                         ]} />
-                        <YSpacer />
                     </div>
+                    <YSpacer space="10px" />
                 </ History>
                 <History title="Projects">
                     <div>
@@ -94,7 +94,7 @@ function Resume(props) {
                             "Built an API that communicates with a health insurance API and displays the coverage information to clients",
                             "Designed the database in SQL, built the API using .NET Core, and used jQuery and bootstrap for the frontend",
                         ]} />
-                        <YSpacer />
+                        <YSpacer space="8px" />
                     </div> 
                     <div>
                         <Header y={{
@@ -112,8 +112,8 @@ function Resume(props) {
                             "Rebuilt the game using react so that actual pictures of cards could be used and the game could come to life",
                             "Applied the use of specific data structures like stack and queue for the card game to work properly",
                         ]} />
-                        <YSpacer />
                     </div>
+                    <YSpacer space="10px" />
                 </ History>
                 <History title="Education">
                     <Header y={{
