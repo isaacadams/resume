@@ -9,7 +9,10 @@ nightmare
     .goto('http://localhost:1234/')
     .evaluate(() => document.querySelector('*'))
     //.html('./dist/newtest.html', 'HTMLComplete')
-    .pdf('./dist/react.pdf', {})
+    .pdf('./dist/react.pdf', {
+      marginsType: 2,
+      pageSize: 'Letter'
+    })
     .end()
     .then(console.log)
     .catch(error => {
