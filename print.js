@@ -7,7 +7,7 @@ const nightmare = Nightmare({ show: true })
 nightmare
     //.goto('https://duckduckgo.com') http://localhost:1234/
     .goto('http://localhost:1234/')
-    .evaluate(() => document.querySelector('*'))
+    .evaluate(() => document.querySelector('.content'))
     //.html('./dist/newtest.html', 'HTMLComplete')
     .pdf('./dist/react.pdf', {
       marginsType: 2,
