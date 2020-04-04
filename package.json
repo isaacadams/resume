@@ -2,9 +2,10 @@
   "name": "resume",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.html",
   "scripts": {
-    "dev": "parcel src/index.html"
+    "dev": "parcel src/index.html",
+    "print": "node index.js"
   },
   "author": "",
   "license": "ISC",
