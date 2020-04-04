@@ -38,7 +38,7 @@ function Resume(props) {
                 </ History>
                 <History title="Experience">    
                     <HistoryRecord 
-                        title={<b>Software Engineer</b>}
+                        position={<b>Software Engineer</b>}
                         company={<i>eMoney Advisor</i>}
                         date="June 2018 - Present"
                         descriptions={[
@@ -52,7 +52,7 @@ function Resume(props) {
                     />         
                     <YSpacer space="8px" />
                     <HistoryRecord 
-                        title={<b>Junior Software Developer</b>}
+                        position={<b>Junior Software Developer</b>}
                         company={<i>PROCONEX</i>}
                         date="March 2017 - March 2018"
                         descriptions={[
@@ -66,7 +66,7 @@ function Resume(props) {
                 </ History>
                 <History title="Projects">
                     <HistoryRecord 
-                        title={<b>Health Coverage API</b>}
+                        position={<b>Health Coverage API</b>}
                         company={<i>Remote</i>}
                         date="July 2018 - September 2018"
                         descriptions={[
@@ -76,7 +76,7 @@ function Resume(props) {
                     />
                     <YSpacer space="8px" />
                     <HistoryRecord 
-                        title={<b>Game Of War</b>}
+                        position={<b>Game Of War</b>}
                         company={<i>Side Project</i>}
                         date="April 2018 - November 2018"
                         descriptions={[
