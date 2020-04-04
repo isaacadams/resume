@@ -71,8 +71,9 @@ function Resume(props) {
                         company={<i>Remote</i>}
                         date="July 2018 - September 2018"
                         descriptions={[
-                            "Built an API that communicates with a health insurance API and displays the coverage information to clients",
-                            "Designed the database in SQL, built the API using .NET Core, and used jQuery and bootstrap for the frontend",
+                            "Aggregated data from a health insurance API and stored it in a database",
+                            "Designed the database using EF Core and using the SQL provider",
+                            "Displayed the coverage information to clients through a .NET core web app built using jQuery and bootstrap"
                         ]}
                     />
                     <YSpacer space="8px" />
