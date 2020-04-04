@@ -5,7 +5,7 @@
   "main": "dist/index.html",
   "scripts": {
     "dev": "parcel src/index.html",
-    "print": "node index.js"
+    "print": "node print.js"
   },
   "author": "",
   "license": "ISC",
