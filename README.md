@@ -1,7 +1,13 @@
 
+Getting Started
+---
+1. clone the repository and run `$ npm i && npm run dev`
+2. the app will be built underneath `$root/dist/`
+3. parcel has its own dev server so the app will immediately be available for viewing at localhost:1234 (if not already in use)
+
 To Do
 ---
-- [] merge header, list, and spacer into its own component since that pattern is emerging
+- [ ] merge header, list, and spacer into its own component since that pattern is emerging
 
 Reading
 ---
