@@ -1,7 +1,8 @@
 import './index.less';
+import './icons.ts';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { History, HistoryRecord, Skill, Header, YSpacer } from './components';
 
 function Resume(props) {
@@ -17,7 +18,7 @@ function Resume(props) {
                     },
                     bottom: {
                         left: "West Chester, PA", 
-                        right: "(610) 742 6276"
+                        right: <a href="https://github.com/isaacadams" ><FontAwesomeIcon icon={["fab", "github"]} /> isaacadams</a> //"(610) 742 6276"
                     }
                 }} />
                 <YSpacer space="15px" />
