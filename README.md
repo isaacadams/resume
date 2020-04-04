@@ -8,6 +8,10 @@ Getting Started
 To Do
 ---
 - [ ] merge header, list, and spacer into its own component since that pattern is emerging
+- [ ] ability to generate a clean pdf of resume
+- [ ] add github icon + link / profile name
+    - github icon + profile name for pdf report
+    = github icon + link for web view
 
 Reading
 ---
