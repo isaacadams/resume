@@ -30,6 +30,6 @@ jobs:
         # OctopusDeploy project to create the release for
         project_name: Resume
         # The version to create the release for
-        release_version: 0.0.0-beta.${{ GITHUB_RUN_NUMBER }}
+        release_version: 0.0.0-beta.${{ github.run_number }}
         # The OctopusDeploy space that the project is in
         #space_name: # optional, default is Default
