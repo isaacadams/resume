@@ -25,10 +25,10 @@ jobs:
     #- run: npm test
     - run: node octo-pack.js --id ${{ package_id }} --v ${{ package_version }}
     - name: Upload release pacakge artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: release ${{ package_name }}
-          path: bin/${{ package_name }}.zip
+      uses: actions/upload-artifact@v1
+      with:
+        name: release ${{ package_name }}
+        path: bin/${{ package_name }}.zip
       env:
         package_id: resume
         package_version: 0.0.0-beta.${{ github.run_number }}
