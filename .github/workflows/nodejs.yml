@@ -15,8 +15,6 @@ env:
 
 jobs:
   build:
-    env:
-      package_name: ${{ env.package_id }}.${{ env.package_version }}
 
     runs-on: ubuntu-latest
 
@@ -30,6 +28,7 @@ jobs:
     - run: npm run build --if-present
     #- run: npm test
     - run: node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }}
+    - run: set-env package_name $package_id.$package_version
     - name: Upload release pacakge artifact
       uses: actions/upload-artifact@v1
       with:
