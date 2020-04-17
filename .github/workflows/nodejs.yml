@@ -25,9 +25,9 @@ jobs:
     #- run: npm test
     - run: node octo-pack.js --id resume --v 0.0.0-beta.${{ github.run_number }}
     - name: Upload release pacakge artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: release 0.0.0-beta.${{ github.run_number }}
-          path: bin/resume.0.0.0-beta.${{ github.run_number }}.zip
+      uses: actions/upload-artifact@v1
+      with:
+        name: release 0.0.0-beta.${{ github.run_number }}
+        path: bin/resume.0.0.0-beta.${{ github.run_number }}.zip
       env:
         CI: true
