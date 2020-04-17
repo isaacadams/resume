@@ -10,12 +10,9 @@ on: [push]
     #branches: [ master ]
 
 env:
-  package:
-    id: resume
-    version: 0.0.0-beta.${{ github.run_number }}
   package_id: resume
   package_version: 0.0.0-beta.${{ github.run_number }}
-  package_name: ${{ env.package.id }}.${{ env.package.version }}
+  package_name: ${{ package_id }}.${{ package_version }}
 
 jobs:
   build:
