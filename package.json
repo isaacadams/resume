@@ -1,6 +1,6 @@
 {
   "name": "resume",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/index.html",
   "scripts": {
@@ -20,12 +20,14 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@isaacadams/extensions": "^1.1.1",
+    "@octopusdeploy/octopackjs": "^0.2.4",
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
     "less": "^3.11.1",
     "parcel": "^1.12.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "yargs": "^15.3.1"
   }
 }
