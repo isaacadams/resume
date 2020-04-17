@@ -9,14 +9,13 @@ on: [push]
   #pull_request:
     #branches: [ master ]
 
-package:
-  id: resume
-  version: 0.0.0-beta.${{ github.run_number }}
-
 env:
+  package:
+    id: resume
+    version: 0.0.0-beta.${{ github.run_number }}
   package_id: resume
   package_version: 0.0.0-beta.${{ github.run_number }}
-  package_name: ${{ package.id }}.${{ package.version }}
+  package_name: ${{ env.package.id }}.${{ env.package.version }}
 
 jobs:
   build:
