@@ -9,6 +9,11 @@ on: [push]
   #pull_request:
     #branches: [ master ]
 
+env:
+  package_id: resume
+  package_version: 0.0.0-beta.${{ github.run_number }}
+  package_name: $package_id.$package_version
+
 jobs:
   build:
 
@@ -23,14 +28,9 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     #- run: npm test
-    - run: node octo-pack.js --id $package_id --v $package_version
+    - run: node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }}
     - name: Upload release pacakge artifact
       uses: actions/upload-artifact@v1
       with:
-        name: release $package_name
-        path: bin/$package_name.zip
-      env:
-        package_id: resume
-        package_version: 0.0.0-beta.${{ github.run_number }}
-        package_name: $package_id.$package_version
-        CI: true
+        name: release ${{ env.package_name }}
+        path: bin/${{ env.package_name }}.zip
