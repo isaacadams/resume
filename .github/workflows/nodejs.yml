@@ -12,10 +12,11 @@ on: [push]
 env:
   package_id: resume
   package_version: 0.0.0-beta.${{ github.run_number }}
-  package_name: ${{ package_id }}.${{ package_version }}
 
 jobs:
   build:
+    env:
+      package_name: ${{ env.package_id }}.${{ env.package_version }}
 
     runs-on: ubuntu-latest
 
