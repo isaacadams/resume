@@ -23,5 +23,4 @@ octo.push(path, {
     }
 
     console.log(result);
-    //console.log("Package Pushed:" + body.Title + " v"+ body.Version +" (" + fileSizeString(body.PackageSizeBytes) +"nytes)"); 
 });
