@@ -24,11 +24,15 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12.x
-    - run: npm ci
-    - run: npm run build --if-present
-    #- run: npm test
-    - run: node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }}
-    - run: set-env package_name $package_id.$package_version
+    - name: build
+      run: |
+      npm ci
+      npm run build --if-present
+    #npm test
+    - name: package release
+      run: |
+      node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }}
+      echo "::set-env name=package_name::$package_id.$package_version"
     - name: Upload release pacakge artifact
       uses: actions/upload-artifact@v1
       with:
