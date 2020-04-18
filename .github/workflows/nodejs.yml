@@ -12,6 +12,8 @@ on: [push]
 env:
   package_id: resume
   package_version: 0.0.0-beta.${{ github.run_number }}
+  package_bin: bin
+  package_type: zip
 
 jobs:
   build:
@@ -33,8 +35,13 @@ jobs:
       run: |
         node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }}
         echo "::set-env name=package_name::$package_id.$package_version"
+        echo "::set-env name=package_path::$package_bin/$package_name.$package_type"
     - name: Upload release pacakge artifact
       uses: actions/upload-artifact@v1
       with:
         name: release ${{ env.package_name }}
-        path: bin/${{ env.package_name }}.zip
+        path: ${{ env.package_path }}
+        #path: bin/${{ env.package_name }}.zip
+    - name: deploy release
+      run: |
+        node octo-push.js --path ${{ env.package_path }} --hostname ${{ secrets.OCTO_URL }} --apikey ${{ secrets.OCTO_API_KEY }}
