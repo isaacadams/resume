@@ -35,7 +35,7 @@ jobs:
       run: |
         node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }}
         echo "::set-env name=package_name::$package_id.$package_version"
-        echo "::set-env name=package_path::$package_bin/$package_name.$package_type"
+    - run: echo "::set-env name=package_path::$package_bin/$package_name.$package_type"
     - name: Upload release pacakge artifact
       uses: actions/upload-artifact@v1
       with:
