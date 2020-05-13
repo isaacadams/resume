@@ -2,12 +2,13 @@
   "name": "@isaacadams/resume",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/index.html",
+  "main": "package/index.js",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
-    "package": "parcel build src/index.tsx --target node --out-dir package",
-    "print": "node print.js"
+    "print": "node print.js",
+    "prepublishOnly": "npm run package",
+    "package": "parcel build src/index.tsx --target node --out-dir package"
   },
   "author": "",
   "license": "ISC",
