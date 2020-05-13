@@ -2,7 +2,7 @@
   "name": "@isaacadams/resume",
   "version": "0.1.2",
   "description": "",
-  "main": "package/index.js",
+  "main": "package/Resume.js",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
