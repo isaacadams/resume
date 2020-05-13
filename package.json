@@ -8,7 +8,7 @@
     "build": "parcel build src/index.html",
     "print": "node print.js",
     "prepublishOnly": "npm run package",
-    "package": "parcel build src/index.tsx --target node --out-dir package"
+    "package": "parcel build src/Resume.tsx --out-dir package"
   },
   "author": "",
   "license": "ISC",
