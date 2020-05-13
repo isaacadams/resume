@@ -1,15 +1,17 @@
 {
-  "name": "resume",
+  "name": "@isaacadams/resume",
   "version": "0.0.0",
   "description": "",
   "main": "dist/index.html",
   "scripts": {
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html",
+    "package": "parcel build src/index.tsx --target node --out-dir package",
     "print": "node print.js"
   },
   "author": "",
   "license": "ISC",
+  "files": ["package/*"],
   "dependencies": {
     "nightmare": "^3.0.2",
     "request": "^2.88.2"
