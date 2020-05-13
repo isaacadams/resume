@@ -5,7 +5,7 @@ import * as ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { History, HistoryRecord, Skill, Header, YSpacer } from './components';
 
-function Resume(props) {
+export function Resume(props) {
     
     return (
         <div className="resume mt-5">
