@@ -10,7 +10,7 @@
     "prepublishOnly": "npm run package",
     "package": "parcel build src/Resume.tsx --out-dir package"
   },
-  "author": "",
+  "author": "Isaac Adams",
   "license": "ISC",
   "files": [
     "package/*"
