@@ -26,7 +26,7 @@ export default function Resume(props) {
                             <div className="col mr-1">
                                 <Skill category="Languages" examples={["Javascript", "C#", "SQL", "TypeScript", "Python", "HTML", "LESS"]} />
                                 <YSpacer />
-                                <Skill category="DevOps" examples={["Jenkins", "Docker", "Octopus", "Gulp", "IIS"]} />    
+                                <Skill category="DevOps" examples={["Jenkins", "Docker", "Octopus", "Gulp", "IIS"]} />
                             </div> 
                             <div className="col">
                                 <Skill category="Technology" examples={[".NET Core", "React", "Node.js", "Angular", "EF Core", "jQuery", "NUnit", "API", "REST", "MVC"]} />
@@ -34,9 +34,9 @@ export default function Resume(props) {
                                 <Skill category="Other" examples={["Git", "Visual Studio", "JSON", "XML", "Jira"]} />
                             </div>
                         </div>   
-                        <YSpacer space="10px" />             
+                        <YSpacer space="10px" />
                     </ History>
-                    <History title="Experience">    
+                    <History title="Experience">
                         <HistoryRecord 
                             position={<b>Software Engineer</b>}
                             company={<i>eMoney Advisor</i>}
@@ -56,7 +56,7 @@ export default function Resume(props) {
                             company={<i>PROCONEX</i>}
                             date="March 2017 - March 2018"
                             descriptions={[
-                                "Sped development by an estimated 20% after creating a T4 script that generated C# code based on SQL schema",
+                                "Sped development after creating a T4 script that generated C# code based on SQL schema",
                                 "Developed a web and mobile application using Angular, C#, and SQL alongside a team of three other developers",
                                 "Wrote an API with ASP.Net Core and Entity Framework used to communicate between SQL and Angular",
                                 "Played a key role in the design of the entire application from the database to the user interface",
