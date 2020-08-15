@@ -4,11 +4,14 @@
   "description": "",
   "main": "package/Resume.js",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build src/index.html",
+    "nuke": "rimraf .parcel-cache node_modules",
+    "clean:dist": "rimraf dist",
+    "clean:package": "rimraf package",
+    "clean": "npm run clean:dist | npm run clean:package",
+    "start": "npm run clean:dist && parcel serve src/index.html",
     "print": "node print.js",
     "prepublishOnly": "npm run package",
-    "package": "parcel build src/Resume.tsx --out-dir package"
+    "package": "npm run clean:package && parcel build src/Resume.tsx --dist-dir package"
   },
   "author": "Isaac Adams",
   "license": "ISC",
@@ -17,7 +20,8 @@
   ],
   "dependencies": {
     "nightmare": "^3.0.2",
-    "request": "^2.88.2"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
@@ -29,9 +33,8 @@
     "@types/react": "16.9.34",
     "@types/react-dom": "16.9.6",
     "less": "^3.11.1",
-    "parcel": "^1.12.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "parcel": "^2.0.0-beta.1",
+    "rimraf": "^3.0.2",
     "typescript": "^3.8.3",
     "yargs": "^15.3.1"
   }
