@@ -7,8 +7,7 @@ import { History, HistoryRecord, Skill, Header, YSpacer } from './components';
 export function Resume(props): JSX.Element {
     return (
         <div id="my-resume">
-            <div className="resume mt-5">
-                <div style={{ height: "75px" }}></div>
+            <div className="resume">
                 <div className="content">
                     <Header y={{
                         top: { 
