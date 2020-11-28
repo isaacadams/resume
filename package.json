@@ -1,23 +1,17 @@
 {
   "name": "@isaacadams/resume",
   "version": "0.2.2",
-  "description": "",
-  "main": "package/Resume.js",
-  "types": "package/index.d.ts",
+  "description": "my resume",
+  "main": "src/Resume.tsx",
   "scripts": {
-    "nuke": "rimraf .parcel-cache node_modules",
     "clean:dist": "rimraf dist",
-    "clean:package": "rimraf package",
-    "clean": "npm run clean:dist | npm run clean:package",
     "start": "npm run clean:dist && parcel serve src/index.html",
-    "print": "node print.js",
-    "prepublishOnly": "npm run package",
-    "package": "npm run clean:package && parcel build src/Resume.tsx --dist-dir package"
+    "print": "node print.js"
   },
   "author": "Isaac Adams",
   "license": "ISC",
   "files": [
-    "package/*"
+    "*"
   ],
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
