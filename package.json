@@ -1,6 +1,6 @@
 {
   "name": "@isaacadams/resume",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "",
   "main": "package/Resume.js",
   "types": "package/index.d.ts",
