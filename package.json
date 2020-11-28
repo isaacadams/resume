@@ -1,6 +1,6 @@
 {
   "name": "@isaacadams/resume",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "my resume",
   "main": "src/Resume.tsx",
   "scripts": {
