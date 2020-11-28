@@ -20,14 +20,14 @@
     "package/*"
   ],
   "dependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
-  },
-  "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.13",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
     "@isaacadams/extensions": "^1.1.1",
     "@octopusdeploy/octopackjs": "^0.2.4",
     "@types/react": "17.0.0",
