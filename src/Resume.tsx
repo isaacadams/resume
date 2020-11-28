@@ -4,7 +4,7 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { History, HistoryRecord, Skill, Header, YSpacer } from './components';
 
-export default function Resume(props) {
+export function Resume(props): JSX.Element {
     return (
         <div id="my-resume">
             <div className="resume mt-5">
