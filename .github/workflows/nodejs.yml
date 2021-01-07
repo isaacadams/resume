@@ -31,17 +31,17 @@ jobs:
         npm ci
         npm run build --if-present
     #npm test
-    - name: package release
-      run: |
-        node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }} --output ${{ env.package_bin }}
-        echo "::set-env name=package_name::$package_id.$package_version"
-    - run: echo "::set-env name=package_path::$package_bin/$package_name.$package_type"
-    - name: Upload release pacakge artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: release ${{ env.package_name }}
-        path: ${{ env.package_path }}
+    #- name: package release
+    #  run: |
+    #    node octo-pack.js --id ${{ env.package_id }} --v ${{ env.package_version }} --output ${{ env.package_bin }}
+    #    echo "::set-env name=package_name::$package_id.$package_version"
+    #- run: echo "::set-env name=package_path::$package_bin/$package_name.$package_type"
+    #- name: Upload release pacakge artifact
+    #  uses: actions/upload-artifact@v1
+    #  with:
+    #    name: release ${{ env.package_name }}
+    #    path: ${{ env.package_path }}
         #path: bin/${{ env.package_name }}.zip
-    - name: deploy release
-      run: |
-        node octo-push.js --path ${{ env.package_path }} --hostname ${{ secrets.OCTO_URL }} --apikey ${{ secrets.OCTO_API_KEY }}
+    #- name: deploy release
+    #  run: |
+    #    node octo-push.js --path ${{ env.package_path }} --hostname ${{ secrets.OCTO_URL }} --apikey ${{ secrets.OCTO_API_KEY }}
