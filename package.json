@@ -4,9 +4,9 @@
   "description": "my resume",
   "main": "src/Resume.tsx",
   "scripts": {
-    "clean:dist": "rimraf dist",
-    "start": "npm run clean:dist && parcel serve src/index.html",
-    "print": "node print.js"
+    "clean": "rimraf dist",
+    "prestart": "npm run clean",
+    "start": "parcel serve src/index.html"
   },
   "author": "Isaac Adams",
   "license": "ISC",
