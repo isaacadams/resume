@@ -1,5 +1,6 @@
 import * as React from 'react';
 import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 export function Print({ cssSelector }): JSX.Element {
   return (
@@ -9,25 +10,38 @@ export function Print({ cssSelector }): JSX.Element {
   );
 }
 
-function printSelection(cssSelector) {
-  html2canvas(document.querySelector(cssSelector)).then((canvas) => {
-    //document.body.appendChild(canvas);
-    //let pdf = canvas.toDataURL('application/pdf');
-    //download('resume.pdf', pdf);
-    let jpeg = canvas.toDataURL('image/jpeg');
-    download('resume.jpeg', jpeg);
-  });
-}
-
-function download(filename, data) {
-  const a = document.createElement('a');
-  a.href = data;
-  console.log(a.href);
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
 // on 'toDataURL': https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
 // on MIME: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+
+function printSelection(cssSelector) {
+  let node = document.querySelector<HTMLBaseElement>(cssSelector);
+  let [w, h] = getDimensionsFromNode(node);
+  let margin = 30;
+
+  html2canvas(node, {
+    allowTaint: true,
+    scale: 3, // Adjusts your resolution
+  }).then((canvas) => {
+    let image = canvas.toDataURL('image/png', 1);
+    let format = calculateJSPDFFormat(w, h, margin);
+    let pdf = new jsPDF('portrait', 'pt', format);
+    pdf.addImage(image, 'PNG', margin, margin, w, h);
+    pdf.save('resume.pdf');
+  }, console.error);
+}
+
+/**
+ * CREDIT: https://www.freakyjolly.com/multipage-canvas-pdf-using-jspdf/
+ * @param width width of PDF
+ * @param height height of PDF
+ * @param margin margins for PDF
+ */
+function calculateJSPDFFormat(width, height, margin) {
+  var PDF_Width = width + margin * 2;
+  var PDF_Height = PDF_Width * 1.5 + margin * 2;
+  return [PDF_Width, PDF_Height];
+}
+
+function getDimensionsFromNode(node: HTMLBaseElement) {
+  return [node.offsetWidth, node.offsetHeight];
+}

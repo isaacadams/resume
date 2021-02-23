@@ -6,7 +6,7 @@ import { Print } from './Print';
 
 ReactDOM.render(
   <>
-    <Print cssSelector={'#my-resume'} />
+    <Print cssSelector={'.content'} />
     <YSpacer space="75px" />
     <Resume />
     <YSpacer space="75px" />
