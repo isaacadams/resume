@@ -1,13 +1,14 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-        "lib": ["ES2020", "DOM"],
-        "noImplicitAny": false,
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true,
-        "allowJs": false,
-        "jsx": "react",
-        "baseUrl": "src",
-        "declaration": true
-    }
+  "compileOnSave": false,
+  "compilerOptions": {
+    "lib": ["ES2020", "DOM"],
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "allowJs": false,
+    "jsx": "react",
+    "baseUrl": "src",
+    "declaration": true,
+    "resolveJsonModule": true
+  }
 }
