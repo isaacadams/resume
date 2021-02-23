@@ -25,7 +25,6 @@
   },
   "devDependencies": {
     "@isaacadams/extensions": "^1.1.1",
-    "@octopusdeploy/octopackjs": "^0.2.4",
     "@parcel/optimizer-cssnano": "^2.0.0-nightly.608",
     "@parcel/optimizer-htmlnano": "^2.0.0-nightly.608",
     "@parcel/packager-css": "^2.0.0-nightly.608",
