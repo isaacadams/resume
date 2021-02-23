@@ -1,6 +1,7 @@
 import * as React from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { getResumeName } from './ResumeNamer';
 
 export function Print({ cssSelector }): JSX.Element {
   return (
@@ -26,7 +27,7 @@ function printSelection(cssSelector) {
     let format = calculateJSPDFFormat(w, h, margin);
     let pdf = new jsPDF('portrait', 'pt', format);
     pdf.addImage(image, 'PNG', margin, margin, w, h);
-    pdf.save('resume.pdf');
+    pdf.save(`${getResumeName()}.pdf`);
   }, console.error);
 }
 
