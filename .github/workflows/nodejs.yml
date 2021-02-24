@@ -3,7 +3,15 @@
 
 name: Node.js CI
 
-on: [push]
+on:
+  push:
+    paths:
+      - '.github/workflows/*'
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - '.parcelrc.json'
 
 env:
   package_id: resume
@@ -25,3 +33,9 @@ jobs:
         run: |
           npm ci
           npm run build --if-present
+          npm run server
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: app
+          path: files
