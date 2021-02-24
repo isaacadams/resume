@@ -4,6 +4,10 @@ import jsPDF from 'jspdf';
 import { getResumeName } from './ResumeNamer';
 
 export function Print({ cssSelector }): JSX.Element {
+  React.useEffect(() => {
+    printSelection(cssSelector);
+  }, []);
+
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <button onClick={() => printSelection(cssSelector)}>Print</button>
@@ -18,6 +22,7 @@ function printSelection(cssSelector) {
   let node = document.querySelector<HTMLBaseElement>(cssSelector);
   let [w, h] = getDimensionsFromNode(node);
   let margin = 30;
+  let filename = `${getResumeName()}.pdf`;
 
   html2canvas(node, {
     allowTaint: true,
@@ -27,7 +32,7 @@ function printSelection(cssSelector) {
     let format = calculateJSPDFFormat(w, h, margin);
     let pdf = new jsPDF('portrait', 'pt', format);
     pdf.addImage(image, 'PNG', margin, margin, w, h);
-    let data = pdf.output('datauristring');
+    let data = pdf.output('datauristring', { filename });
     fetch(`http://localhost:3000/print`, {
       method: 'POST',
       body: data,
@@ -38,7 +43,7 @@ function printSelection(cssSelector) {
       .then(console.log)
       .catch(console.error);
 
-    //pdf.save(`${getResumeName()}.pdf`);
+    //pdf.save(filename);
   }, console.error);
 }
 
