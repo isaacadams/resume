@@ -1,6 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
+/**
+ *
+ * @param {string} filename
+ * @param {any} data
+ * @param {BufferEncoding} encoding
+ */
 function writeToFile(filename, data, encoding) {
   let writeStream = fs.createWriteStream(filename);
 
