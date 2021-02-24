@@ -27,7 +27,18 @@ function printSelection(cssSelector) {
     let format = calculateJSPDFFormat(w, h, margin);
     let pdf = new jsPDF('portrait', 'pt', format);
     pdf.addImage(image, 'PNG', margin, margin, w, h);
-    pdf.save(`${getResumeName()}.pdf`);
+    let data = pdf.output('datauristring');
+    fetch(`http://localhost:3000/print`, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Content-Type': 'application/pdf',
+      },
+    })
+      .then(console.log)
+      .catch(console.error);
+
+    //pdf.save(`${getResumeName()}.pdf`);
   }, console.error);
 }
 

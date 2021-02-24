@@ -1,8 +1,12 @@
+const path = require('path');
 const fastify = require('fastify')({
   logger: true,
 });
 
-fastify.register(require('./hello-world'));
+fastify.register(require('fastify-static'), {
+  root: path.join(__dirname, '../../dist'),
+});
+fastify.register(require('./pdf-parser'));
 
 fastify.listen(3000, function (err, address) {
   if (err) {
