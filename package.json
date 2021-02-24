@@ -7,8 +7,9 @@
     "prestart": "npm run clean",
     "start": "parcel serve src/client/index.html",
     "server": "node src/server/index.js",
-    "dev": "nodemon ./src/server/index.js",
-    "watch": "parcel watch src/client/index.html"
+    "watch:server": "nodemon ./src/server/index.js",
+    "watch:client": "parcel watch src/client/index.html",
+    "watch": "concurrently \"npm run watch:client\" \"npm run watch:server\""
   },
   "author": "Isaac Adams",
   "license": "ISC",
@@ -39,6 +40,7 @@
     "@parcel/transformer-posthtml": "^2.0.0-nightly.608",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
+    "concurrently": "^6.0.0",
     "fastify-static": "^4.0.1",
     "less": "^3.12.2",
     "nodemon": "^2.0.7",
