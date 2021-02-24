@@ -24,21 +24,20 @@ async function routes(fastify, options, next) {
   fastify.post('/print', (req, reply) => {
     // coming back as data uri
     // https://tools.ietf.org/html/rfc2397
-    let [rawMetadata, data] = req.body.split(',');
-    let uriMetadata = parseDataUri(rawMetadata);
+    let metadata = parseDataUri(req.body);
     let timestamp = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
     let containingFolder = path.join('files', timestamp);
     ensureFolderExists(containingFolder);
     writeToFile(
       path.join(containingFolder, 'metadata.txt'),
-      rawMetadata,
+      metadata.raw,
       'utf8'
     );
-    let filename = uriMetadata?.filename ?? 'generated.pdf';
+    let filename = metadata?.filename ?? 'generated.pdf';
     writeToFile(
       path.join(containingFolder, filename),
-      data,
-      uriMetadata.encoding
+      metadata.data,
+      metadata.encoding
     );
     reply.send();
   });

@@ -1,6 +1,7 @@
 // ref: https://tools.ietf.org/html/rfc2397
 function parseDataUri(datauri) {
-  let [data, uri] = datauri.split(':');
+  let [url, data] = datauri.split(',');
+  let uri = url.split(':')[1];
   let [mime, ...remaining] = uri.split(';');
   let [encoding, ...parameters] = remaining.reverse();
   return parameters.reduce(
@@ -12,6 +13,8 @@ function parseDataUri(datauri) {
     {
       mime,
       encoding,
+      data,
+      raw: url,
     }
   );
 }
