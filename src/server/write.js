@@ -8,18 +8,18 @@ const path = require('path');
  * @param {BufferEncoding} encoding
  */
 function writeToFile(filename, data, encoding) {
-  let writeStream = fs.createWriteStream(filename);
-
-  // write some data with a base64 encoding
-  writeStream.write(data, encoding);
-
-  // the finish event is emitted when all data has been flushed from the stream
-  writeStream.on('finish', () => {
-    console.log('finished writing.');
+  return new Promise((res, rej) => {
+    let writeStream = fs.createWriteStream(filename);
+    // write some data with a base64 encoding
+    writeStream.write(data, encoding);
+    // the finish event is emitted when all data has been flushed from the stream
+    writeStream.on('finish', () => {
+      res(`finished writing ${filename}`);
+    });
+    writeStream.on('error', rej);
+    // close the stream
+    writeStream.end();
   });
-
-  // close the stream
-  writeStream.end();
 }
 
 function ensureFolderExists(pathLike) {

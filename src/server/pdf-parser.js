@@ -27,18 +27,24 @@ async function routes(fastify, options, next) {
     let metadata = parseDataUri(req.body);
     let timestamp = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
     let containingFolder = path.join('files', timestamp);
-    ensureFolderExists(containingFolder);
-    writeToFile(
-      path.join(containingFolder, 'metadata.txt'),
-      metadata.raw,
-      'utf8'
-    );
     let filename = metadata?.filename ?? 'generated.pdf';
-    writeToFile(
-      path.join(containingFolder, filename),
-      metadata.data,
-      metadata.encoding
-    );
+    ensureFolderExists(containingFolder);
+
+    Promise.all([
+      writeToFile(
+        path.join(containingFolder, 'metadata.txt'),
+        metadata.raw,
+        'utf8'
+      ),
+      writeToFile(
+        path.join(containingFolder, filename),
+        metadata.data,
+        metadata.encoding
+      ),
+    ]).then((r) => {
+      console.log(r);
+      //process.exit(1);
+    });
     reply.send();
   });
 }
