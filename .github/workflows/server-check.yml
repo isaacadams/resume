@@ -2,6 +2,9 @@ name: check fastify server
 
 on: ['push']
 
+env:
+  PORT: 3000
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,6 +14,7 @@ jobs:
         run: |
           touch .env
           echo KILLONPRINT=true >> .env
+          echo PORT={{env.PORT}} >> .env
           cat .env
       - name: Use Node.js 12.x
         uses: actions/setup-node@v1
@@ -23,4 +27,4 @@ jobs:
       - name: check connection
         uses: wei/curl@v1.1.1
         with:
-          args: https://localhost:3000/connected
+          args: http://localhost:{{env.PORT}}/connected
