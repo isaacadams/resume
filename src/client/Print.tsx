@@ -4,8 +4,12 @@ import jsPDF from 'jspdf';
 import { getResumeName } from './ResumeNamer';
 
 export function Print({ cssSelector }): JSX.Element {
+  let [canvas, setCanvas] = React.useState<HTMLCanvasElement>(null);
   React.useEffect(() => {
-    printSelection(cssSelector);
+    printSelection(cssSelector).then((c) => {
+      setCanvas(c);
+    });
+    return () => {};
   }, []);
 
   return (
@@ -21,30 +25,56 @@ export function Print({ cssSelector }): JSX.Element {
 function printSelection(cssSelector) {
   let node = document.querySelector<HTMLBaseElement>(cssSelector);
   let [w, h] = getDimensionsFromNode(node);
-  let margin = 30;
+  let margin = 0.5;
   let filename = `${getResumeName()}.pdf`;
 
-  html2canvas(node, {
+  console.log(`
+    x
+      scroll: ${node.scrollLeft}
+      client: ${node.clientLeft}
+      offset: ${node.offsetLeft}
+    
+    width
+      scroll: ${node.scrollWidth}
+      client: ${node.clientWidth}
+      offset: ${node.offsetWidth}
+  `);
+  return html2canvas(node, {
     allowTaint: true,
-    scale: 3, // Adjusts your resolution
-  }).then((canvas) => {
-    let image = canvas.toDataURL('image/png', 1);
-    let format = calculateJSPDFFormat(w, h, margin);
-    let pdf = new jsPDF('portrait', 'pt', format);
-    pdf.addImage(image, 'PNG', margin, margin, w, h);
-    let data = pdf.output('datauristring', { filename });
-    fetch(`http://localhost:3000/print`, {
-      method: 'POST',
-      body: data,
-      headers: {
-        'Content-Type': 'application/pdf',
-      },
-    })
-      .then(console.log)
-      .catch(console.error);
+    scale: 5,
+  }).then(
+    (canvas) => {
+      let image = canvas.toDataURL('image/png', 1);
 
-    //pdf.save(filename);
-  }, console.error);
+      h = canvas.height = getA4FormatInInches().height; // convertToInches(canvas.height);
+      w = canvas.width = getA4FormatInInches().width; // convertToInches(canvas.width);
+
+      let format = addMarginToAllSides(w, h, margin);
+      let pdf = new jsPDF('portrait', 'in', format, true);
+      // the true at the end is compression! very important for most platforms have a size limit
+
+      pdf.addImage(image, 'PNG', margin, margin, w, h);
+      sendPDFToServer(pdf.output('datauristring', { filename }));
+      //pdf.save(filename);
+      return canvas;
+    },
+    (e) => {
+      console.error(e);
+      return null;
+    }
+  );
+}
+
+async function sendPDFToServer(pdf) {
+  await fetch(`http://localhost:3000/print`, {
+    method: 'POST',
+    body: pdf,
+    headers: {
+      'Content-Type': 'application/pdf',
+    },
+  })
+    .then(console.log)
+    .catch(console.error);
 }
 
 /**
@@ -53,12 +83,25 @@ function printSelection(cssSelector) {
  * @param height height of PDF
  * @param margin margins for PDF
  */
-function calculateJSPDFFormat(width, height, margin) {
+function addMarginToAllSides(width, height, margin) {
   var PDF_Width = width + margin * 2;
-  var PDF_Height = PDF_Width * 1.5 + margin * 2;
+  var PDF_Height = height + margin * 2;
   return [PDF_Width, PDF_Height];
 }
 
 function getDimensionsFromNode(node: HTMLBaseElement) {
   return [node.offsetWidth, node.offsetHeight];
+}
+
+function convertToInches(pixels) {
+  //1 in = 96 pixel (X)
+  return pixels / 96;
+}
+
+//A4 8.27 in x 11.69 in
+function getA4FormatInInches() {
+  return {
+    width: 8.27,
+    height: 11.69,
+  };
 }
