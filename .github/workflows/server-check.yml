@@ -17,7 +17,9 @@ jobs:
         with:
           node-version: 12.x
       - name: run server
-        run: npm run server
+        run: |
+          npm ci
+          npm run server
       - name: check connection
         uses: wei/curl@v1.1.1
         with:
