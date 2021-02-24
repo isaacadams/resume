@@ -8,7 +8,8 @@ const pump = util.promisify(pipeline);
 
 async function routes(fastify, options, next) {
   fastify.get('/connected', async (request, reply) => {
-    return reply.code(200).send('fastify is running');
+    await reply.code(200).send('fastify is running');
+    if (fastify.config.KILLONPRINT) process.exit(1);
   });
 
   fastify.get('/', async (request, reply) => {
