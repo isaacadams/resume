@@ -2,11 +2,11 @@
   "name": "@isaacadams/resume",
   "version": "1.0.0",
   "description": "my resume",
-  "main": "src/client/Resume.tsx",
   "scripts": {
     "clean": "rimraf dist",
     "prestart": "npm run clean",
-    "start": "parcel serve src/client/index.html"
+    "start": "parcel serve src/client/index.html",
+    "server": "node src/server/index.js"
   },
   "author": "Isaac Adams",
   "license": "ISC",
