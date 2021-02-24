@@ -43,7 +43,7 @@ async function routes(fastify, options, next) {
       ),
     ]).then((r) => {
       console.log(r);
-      //process.exit(1);
+      if (fastify.config.KILLONPRINT) process.exit(1);
     });
     reply.send();
   });
