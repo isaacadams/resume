@@ -54,7 +54,8 @@
   },
   "nodemonConfig": {
     "watch": [
-      "./src/server/"
+      "./src/server/",
+      ".env"
     ]
   }
 }
