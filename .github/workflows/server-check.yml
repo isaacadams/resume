@@ -25,6 +25,4 @@ jobs:
           npm ci
           npm run server &
       - name: check connection
-        uses: wei/curl@v1.1.1
-        with:
-          args: http://localhost:${{env.PORT}}/connected
+        run: curl -I http://localhost:${{env.PORT}}/connected
