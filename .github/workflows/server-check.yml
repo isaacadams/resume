@@ -19,7 +19,7 @@ jobs:
       - name: run server
         run: |
           npm ci
-          start npm run server
+          npm run server &
       - name: check connection
         uses: wei/curl@v1.1.1
         with:
