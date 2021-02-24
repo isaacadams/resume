@@ -7,6 +7,10 @@ const parseDataUri = require('./parseDataUri');
 const pump = util.promisify(pipeline);
 
 async function routes(fastify, options, next) {
+  fastify.get('/connected', async (request, reply) => {
+    return reply.code(200).send('fastify is running');
+  });
+
   fastify.get('/', async (request, reply) => {
     return reply.sendFile('index.html');
   });
