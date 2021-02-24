@@ -6,7 +6,8 @@
     "clean": "rimraf dist",
     "prestart": "npm run clean",
     "start": "parcel serve src/client/index.html",
-    "server": "node src/server/index.js"
+    "server": "node src/server/index.js",
+    "dev": "nodemon ./src/server/index.js"
   },
   "author": "Isaac Adams",
   "license": "ISC",
@@ -38,6 +39,7 @@
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
     "less": "^3.12.2",
+    "nodemon": "^2.0.7",
     "parcel": "^2.0.0-nightly.606",
     "postcss": "^8.2.6",
     "rimraf": "^3.0.2",
