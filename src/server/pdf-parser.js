@@ -29,8 +29,17 @@ async function routes(fastify, options, next) {
     let today = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
     let containingFolder = path.join('files', today);
     ensureFolderExists(containingFolder);
-    writeToFile(`${containingFolder}/metadata.txt`, rawMetadata, 'utf8');
-    writeToFile(`${containingFolder}/resume.pdf`, data, 'base64');
+    writeToFile(
+      path.join(containingFolder, 'metadata.txt'),
+      rawMetadata,
+      'utf8'
+    );
+    let filename = uriMetadata?.filename ?? 'generated.pdf';
+    writeToFile(
+      path.join(containingFolder, filename),
+      data,
+      uriMetadata.encoding
+    );
     reply.send();
   });
 }
