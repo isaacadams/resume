@@ -32,7 +32,7 @@ async function routes(fastify, options, next) {
     let metadata = parseDataUri(req.body);
     let timestamp = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
     let containingFolder = path.join('files', timestamp);
-    let filename = metadata?.filename ?? 'generated.pdf';
+    let filename = metadata.filename || 'generated.pdf';
     ensureFolderExists(containingFolder);
 
     Promise.all([
