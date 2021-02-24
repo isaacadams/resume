@@ -21,6 +21,8 @@ async function routes(fastify, options, next) {
   });
 
   fastify.post('/print', (req, reply) => {
+    // coming back as data uri
+    // https://tools.ietf.org/html/rfc2397
     let [metadata, data] = req.body.split(',');
 
     let today = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
