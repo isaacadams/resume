@@ -26,8 +26,8 @@ async function routes(fastify, options, next) {
     // https://tools.ietf.org/html/rfc2397
     let [rawMetadata, data] = req.body.split(',');
     let uriMetadata = parseDataUri(rawMetadata);
-    let today = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
-    let containingFolder = path.join('files', today);
+    let timestamp = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
+    let containingFolder = path.join('files', timestamp);
     ensureFolderExists(containingFolder);
     writeToFile(
       path.join(containingFolder, 'metadata.txt'),
