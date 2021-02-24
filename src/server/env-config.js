@@ -10,11 +10,11 @@ const schema = {
     },
     LOG: {
       type: 'boolean',
-      default: 'false',
+      default: 'true',
     },
     KILLONPRINT: {
       type: 'boolean',
-      default: 'true',
+      default: 'false',
     },
   },
 };
