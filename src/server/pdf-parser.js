@@ -3,6 +3,7 @@ const util = require('util');
 const path = require('path');
 const { pipeline } = require('stream');
 const { writeToFile, ensureFolderExists, dateFormat } = require('./write');
+const parseDataUri = require('./parseDataUri');
 const pump = util.promisify(pipeline);
 
 async function routes(fastify, options, next) {
@@ -23,12 +24,12 @@ async function routes(fastify, options, next) {
   fastify.post('/print', (req, reply) => {
     // coming back as data uri
     // https://tools.ietf.org/html/rfc2397
-    let [metadata, data] = req.body.split(',');
-
+    let [rawMetadata, data] = req.body.split(',');
+    let uriMetadata = parseDataUri(rawMetadata);
     let today = dateFormat(Date.now(), '%H.%M.%S [%m-%d-%Y]', false);
     let containingFolder = path.join('files', today);
     ensureFolderExists(containingFolder);
-    writeToFile(`${containingFolder}/metadata.txt`, metadata, 'utf8');
+    writeToFile(`${containingFolder}/metadata.txt`, rawMetadata, 'utf8');
     writeToFile(`${containingFolder}/resume.pdf`, data, 'base64');
     reply.send();
   });
