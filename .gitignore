@@ -4,3 +4,4 @@ dist/
 resumes/
 files
 .env
+.nyc_output
