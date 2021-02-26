@@ -54,7 +54,7 @@ function printSelection(cssSelector) {
       // the true at the end is compression! very important for most platforms have a size limit
 
       pdf.addImage(image, 'PNG', margin, margin, w, h);
-      sendPDFToServer(pdf.output('datauristring', { filename }));
+      //sendPDFToServer(pdf.output('datauristring', { filename }));
       //pdf.save(filename);
       return canvas;
     },
