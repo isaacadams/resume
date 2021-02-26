@@ -10,7 +10,7 @@
     "watch:server": "nodemon ./src/server/index.js",
     "watch:client": "parcel watch src/client/index.html",
     "watch": "concurrently \"npm run watch:client\" \"npm run watch:server\"",
-    "build": "parcel build src/client/index.html",
+    "build": "parcel build src/client/index.html --public-url ./",
     "server": "node src/server/index.js",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
