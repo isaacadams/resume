@@ -1,9 +1,17 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: client app build
 
-on: [push]
+on:
+  push:
+    paths:
+      - '.github/workflows/client-app.yml'
+      - 'src/client/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - '.parcelrc.json'
 
 env:
   package_id: resume
@@ -14,7 +22,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js 12.x
@@ -24,4 +31,14 @@ jobs:
       - name: build
         run: |
           npm ci
-          npm run build --if-present
+          npm run build
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: client-app
+          path: dist

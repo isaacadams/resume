@@ -4,12 +4,14 @@ import { Resume } from './Resume';
 import { YSpacer } from './components/YSpacer';
 import { Print } from './Print';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 ReactDOM.render(
   <>
-    <Print cssSelector={'.content'} />
-    <YSpacer space="75px" />
+    {isDev && <Print cssSelector={'.content'} />}
+    <YSpacer space="60px" />
     <Resume />
-    <YSpacer space="75px" />
+    <YSpacer space="60px" />
   </>,
   document.getElementById('resume')
 );
