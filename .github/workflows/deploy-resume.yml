@@ -1,0 +1,15 @@
+name: deploy resume
+
+on:
+  workflow_run:
+    workflows:
+      - client_app_build
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo Hello World
