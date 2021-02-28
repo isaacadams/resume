@@ -13,3 +13,13 @@ jobs:
     steps:
       - name: test
         run: echo Hello World
+      - name: download test
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          workflow: client-app.yml
+          workflow_conclusion: success
+          branch: master
+          name: client-app
+      - name: display files
+        run: ls -a

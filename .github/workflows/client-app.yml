@@ -32,11 +32,16 @@ jobs:
           name: client-app
           path: dist
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: download
-        uses: actions/download-artifact@v2
+        uses: dawidd6/action-download-artifact@v2
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workflow: client-app.yml
+          workflow_conclusion: success
+          branch: master
           name: client-app
       - name: display files
         run: ls -a
