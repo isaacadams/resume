@@ -7,7 +7,6 @@ on:
   push:
     paths:
       - '.github/workflows/client-app.yml'
-      - '.github/workflows/deploy-resume.yml'
       - 'src/client/**'
       - 'package.json'
       - 'package-lock.json'
@@ -32,3 +31,17 @@ jobs:
         with:
           name: client-app
           path: dist
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download
+        uses: actions/download-artifact@v2
+        with:
+          name: client-app
+      - name: display files
+        run: ls -a
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
