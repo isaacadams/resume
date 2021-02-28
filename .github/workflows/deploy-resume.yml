@@ -11,5 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: echo Hello World
+      - name: download
+      - uses: actions/download-artifact@v2
+        with:
+          name: client-app
+      - name: display files
+        run: ls -a
+      - name: deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./

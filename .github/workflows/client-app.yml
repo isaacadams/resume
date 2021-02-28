@@ -13,18 +13,12 @@ on:
       - 'tsconfig.json'
       - '.parcelrc.json'
 
-env:
-  package_id: resume
-  package_version: 0.0.0-beta.${{ github.run_number }}
-  package_bin: bin
-  package_type: zip
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 12.x
+      - name: setup node
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
@@ -32,12 +26,7 @@ jobs:
         run: |
           npm ci
           npm run build
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
-      - name: Archive Production Artifact
+      - name: upload app
         uses: actions/upload-artifact@master
         with:
           name: client-app
