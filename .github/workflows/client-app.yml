@@ -7,6 +7,7 @@ on:
   push:
     paths:
       - '.github/workflows/client-app.yml'
+      - '.github/workflows/deploy-resume.yml'
       - 'src/client/**'
       - 'package.json'
       - 'package-lock.json'
