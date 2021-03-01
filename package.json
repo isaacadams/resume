@@ -2,6 +2,7 @@
   "homepage": "http://iadams.github.io/resume",
   "name": "@isaacadams/resume",
   "version": "1.0.0",
+  "private": "true",
   "description": "my resume",
   "scripts": {
     "clean": "rimraf dist",
