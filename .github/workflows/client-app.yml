@@ -22,10 +22,26 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+      - name: cache install
+        id: cache-install
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-install-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-install-
+      - name: install
+        #if: steps.cache-install.outputs.cache-hit != 'true'
+        run: npm ci
+      - name: cache build
+        uses: actions/cache@v2
+        with:
+          path: .parcel-cache
+          key: ${{ runner.os }}-build-${{ hashFiles('src/**') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
       - name: build
-        run: |
-          npm ci
-          npm run build
+        run: npm run build
       - name: upload app
         uses: actions/upload-artifact@master
         with:
