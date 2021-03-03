@@ -45,32 +45,32 @@ function ensureFolderExists(pathLike) {
  * %H - hour
  * %M - minute
  * %S - seconds
- * @param {DateConstructor} date the date object to format
+ * @param {Date | string | number} dateLike the date object to format
  * @param {string} fstr the format string
- * @param {boolean} utc use utc time or not
+ * @param {boolean} useUtc use utc time or not
  * @returns {string} dateFormat (new Date (), "%Y-%m-%d %H:%M:%S", true) returns "2012-05-18 05:37:21"
  */
-function dateFormat(date, fstr, utc) {
-  date = new Date(date);
-  utc = utc ? 'getUTC' : 'get';
+export function dateFormat(dateLike, fstr, useUtc) {
+  let date = new Date(dateLike);
+  let getFunction = useUtc ? 'getUTC' : 'get';
   return fstr.replace(/%[YmdHMS]/g, function (m) {
     switch (m) {
       case '%Y':
-        return date[utc + 'FullYear'](); // no leading zeros required
+        return date[getFunction + 'FullYear'](); // no leading zeros required
       case '%m':
-        m = 1 + date[utc + 'Month']();
+        m = 1 + date[getFunction + 'Month']();
         break;
       case '%d':
-        m = date[utc + 'Date']();
+        m = date[getFunction + 'Date']();
         break;
       case '%H':
-        m = date[utc + 'Hours']();
+        m = date[getFunction + 'Hours']();
         break;
       case '%M':
-        m = date[utc + 'Minutes']();
+        m = date[getFunction + 'Minutes']();
         break;
       case '%S':
-        m = date[utc + 'Seconds']();
+        m = date[getFunction + 'Seconds']();
         break;
       default:
         return m.slice(1); // unknown code, remove %
