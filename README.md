@@ -1,11 +1,11 @@
-## Getting Started
+## 👋 Getting Started
 
-1. initialization
-   - clone the repository
-   - `$ npm i`
-   - `$ npm start`
-2. open any browser to localhost:1234 (if not already in use)
-   - parcel bootstraps and serves the app
+1. make sure .env `NODE_ENV=development`
+2. `$ npm run watch`
+3. open to localhost:3000
+4. click print button
+   - resume may need to be opened on a 1080 screen before clicking print
+5. resume will output to files/timestamp/{version}.pdf
 
 ## Resume Specifications
 
@@ -15,9 +15,9 @@
 ## To Do
 
 - [ ] merge header, list, and spacer into its own component since that pattern is emerging
-- [ ] ability to generate a clean pdf of resume
-- [ ] don't want phone number in web version of resume, can replace with github profile
-- [ ] add github icon + link / profile name
+- [x] ability to generate a clean pdf of resume
+- [x] don't want phone number in web version of resume, can replace with github profile
+- [x] add github icon + link / profile name
   - github icon + profile name for pdf report
   - github icon + link for web view
 
