@@ -50,7 +50,7 @@ function ensureFolderExists(pathLike) {
  * @param {boolean} useUtc use utc time or not
  * @returns {string} dateFormat (new Date (), "%Y-%m-%d %H:%M:%S", true) returns "2012-05-18 05:37:21"
  */
-export function dateFormat(dateLike, fstr, useUtc) {
+function dateFormat(dateLike, fstr, useUtc) {
   let date = new Date(dateLike);
   let getFunction = useUtc ? 'getUTC' : 'get';
   return fstr.replace(/%[YmdHMS]/g, function (m) {
