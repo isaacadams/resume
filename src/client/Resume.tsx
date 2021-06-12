@@ -40,19 +40,27 @@ export function Resume(props): JSX.Element {
                 <Skill
                   category="Languages"
                   examples={[
-                    'Javascript',
+                    'javascript',
+                    'typescript',
                     'C#',
                     'SQL',
-                    'Typescript',
                     'Python',
                     'HTML',
+                    'SCSS',
                     'LESS',
                   ]}
                 />
                 <YSpacer />
                 <Skill
                   category="DevOps"
-                  examples={['Jenkins', 'Docker', 'Octopus', 'Gulp', 'IIS']}
+                  examples={[
+                    'Github Actions',
+                    'Jenkins',
+                    'Docker',
+                    'Octopus',
+                    'Gulp',
+                    'IIS',
+                  ]}
                 />
               </div>
               <div className="col">
@@ -75,7 +83,7 @@ export function Resume(props): JSX.Element {
                 <YSpacer />
                 <Skill
                   category="Other"
-                  examples={['Git', 'Visual Studio', 'JSON', 'XML', 'Jira']}
+                  examples={['Git', 'Visual Studio', 'JSON', 'XML', 'JIRA']}
                 />
               </div>
             </div>
@@ -87,10 +95,10 @@ export function Resume(props): JSX.Element {
               company={<i>eMoney Advisor</i>}
               date="June 2018 - Present"
               descriptions={[
-                'Built a printing service which involved various technologies like GRPC, SignalR, IronPDF, and Encryption',
-                'Helped usher in modern team practices such as pull requests, unit tests, and branch workflow',
+                'Used typescript and react to build a report printing queue where clients can view and delete their requests',
+                'Bootstrapping es6, typescript, and react frontend applications using parcel, babel, and gulp',
+                'Built a printing service which involved technologies like GRPC, SignalR, and an in-house encryption library',
                 'Halved number of files in a project by introducing a simpler repository approach in the new .NET Core app',
-                'Setup automated tasks for transpiling and minifying js and scss files using gulp',
                 'Containerized and automated the build process using Docker to create a stable and flexible build environment',
                 'Facilited the ease of releases by creating .nupkg through Jenkins multi branch pipeline and pushing to Octopus',
               ]}
@@ -102,7 +110,7 @@ export function Resume(props): JSX.Element {
               date="March 2017 - March 2018"
               descriptions={[
                 'Sped development after creating a T4 script that generated C# code based on SQL schema',
-                'Developed a web and mobile application using Angular, C#, and SQL alongside a team of three other developers',
+                'Developed a web and mobile application using Angular, C#, and SQL on a team of three other developers',
                 'Wrote an API with ASP.Net Core and Entity Framework used to communicate between SQL and Angular',
                 'Played a key role in the design of the entire application from the database to the user interface',
               ]}
@@ -115,10 +123,9 @@ export function Resume(props): JSX.Element {
               company={<i>Side Project</i>}
               date="December 2020 - Present"
               descriptions={[
-                'A project where users can create wishlists and share them with friends and family',
-                'Frontend is built using react and data is stored using Firebase Realtime Database',
-                'Using parcel to bootstrap the application and typescript',
-                'Currently working on feature that allows users create, edit, and manage groups for sharing wishlists',
+                'A web app where users can create wishlists and share them with friends and family',
+                'It is built using typescript and react and the data is being stored using Firebase Realtime Database',
+                'Currently working on feature that allows users create or join groups for sharing wishlists',
               ]}
             />
             <YSpacer space="8px" />
