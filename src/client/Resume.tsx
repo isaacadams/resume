@@ -4,6 +4,18 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { History, HistoryRecord, Skill, Header, YSpacer } from './components';
 
+function GetRightSideOfHeader({}) {
+  if (process.env.NODE_ENV === 'development') {
+    return <span>{process.env.PHONE}</span>;
+  }
+
+  return (
+    <a href="https://github.com/isaacadams">
+      <FontAwesomeIcon icon={['fab', 'github']} /> isaacadams
+    </a>
+  );
+}
+
 export function Resume(props): JSX.Element {
   return (
     <div id="my-resume">
@@ -17,12 +29,7 @@ export function Resume(props): JSX.Element {
               },
               bottom: {
                 left: 'West Chester, PA',
-                right: (
-                  <a href="https://github.com/isaacadams">
-                    <FontAwesomeIcon icon={['fab', 'github']} /> isaacadams
-                  </a>
-                ),
-                //right: '(610) 742 6276',
+                right: <GetRightSideOfHeader />,
               },
             }}
           />
