@@ -2,9 +2,8 @@
 
 1. make sure .env `NODE_ENV=development`
 2. `$ npm run watch`
-3. open to localhost:3000
+3. open to localhost:3000 on your largest monitor
 4. click print button
-   - resume may need to be opened on a 1080 screen before clicking print
 5. resume will output to files/timestamp/{version}.pdf
 
 ## Resume Specifications
@@ -20,6 +19,11 @@
 - [x] add github icon + link / profile name
   - github icon + profile name for pdf report
   - github icon + link for web view
+
+## Troubleshooting
+
+- if resume output is cutting things off, usually on the right side, try opening the web app on a larger monitor and print again
+- if gh page doesnt update with latest, [try refreshing the page](https://stackoverflow.com/questions/20422279/github-pages-are-not-updating#27809833)
 
 ## Reading
 
