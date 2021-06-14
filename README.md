@@ -1,3 +1,7 @@
+# Resume
+
+You can view my resume [here](https://isaacadams.github.io/resume/)
+
 ## 👋 Getting Started
 
 1. make sure .env `NODE_ENV=development`
@@ -10,15 +14,6 @@
 
 - 1 inch top, bottom, left, and right is standard ... some say a half inch is acceptable
 - Resume font size should be 10.5 - 12 pt
-
-## To Do
-
-- [ ] merge header, list, and spacer into its own component since that pattern is emerging
-- [x] ability to generate a clean pdf of resume
-- [x] don't want phone number in web version of resume, can replace with github profile
-- [x] add github icon + link / profile name
-  - github icon + profile name for pdf report
-  - github icon + link for web view
 
 ## Troubleshooting
 
