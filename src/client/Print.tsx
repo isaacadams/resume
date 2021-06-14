@@ -4,13 +4,19 @@ import jsPDF from 'jspdf';
 import { getResumeName } from './ResumeNamer';
 
 export function Print({ cssSelector }): JSX.Element {
+  /* 
+  This code prints the resume on initial render then
+  saves the created canvas object to state, supposedly to do something with it? or view it?
+  
   let [canvas, setCanvas] = React.useState<HTMLCanvasElement>(null);
   React.useEffect(() => {
     printSelection(cssSelector).then((c) => {
       setCanvas(c);
     });
     return () => {};
-  }, []);
+  }, []); 
+  
+  */
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -54,8 +60,8 @@ function printSelection(cssSelector) {
       // the true at the end is compression! very important for most platforms have a size limit
 
       pdf.addImage(image, 'PNG', margin, margin, w, h);
-      //sendPDFToServer(pdf.output('datauristring', { filename }));
-      //pdf.save(filename);
+      sendPDFToServer(pdf.output('datauristring', { filename })); // server save
+      //pdf.save(filename); // client save
       return canvas;
     },
     (e) => {
